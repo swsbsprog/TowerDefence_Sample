@@ -43,8 +43,7 @@ public class WaveManager : MonoBehaviour
     float waitEndTime;
     public void OnClickRegenMonster()
     {
-        // 기다리는 시간 즉시 완료되게 하기.
-        waitEndTime = 0;
+        waitEndTime = 0; // 기다리는 시간 즉시 완료되게 하기.
         fillAmountUI.gameObject.SetActive(false);
     }
     public Animator fillAmountUI;

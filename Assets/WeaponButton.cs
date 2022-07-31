@@ -1,18 +1,22 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TowerType
+{
+    Arrow,
+    Shied,
+    Magic,
+    Bomb,
+}
 public class WeaponButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TowerType type;
 
-    // Update is called once per frame
-    void Update()
+    public void OnClickBuildTower()
     {
-        
+        var spawnPos = WeaponSelectUI.instance.posTr.position;
+        print(type + $"을 {spawnPos}에 건설하자");
+        BuildManager.instance.Build(type, spawnPos);
     }
 }

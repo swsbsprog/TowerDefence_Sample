@@ -133,9 +133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   target: {fileID: 0}
+  testList: []
   coolTime: 1
   nextUseableTime: 0
-  weapon: {fileID: 0}
+  weapon: {fileID: 8079559917541793382, guid: 1f7f5de8b53b5cf4fb7324d8ef8cc035, type: 3}
   weaponRegenPoint: {fileID: 1062561858875409668}
 --- !u!58 &6592975493480728298
 CircleCollider2D:

@@ -20,5 +20,11 @@ public class WeaponSelectUI : MonoBehaviour
         posTr.gameObject.SetActive(true);
         posTr.position = position;
         GetComponent<Animator>().Play("Show", 0, 0);
+
+        var allButtons = GetComponentsInChildren<WeaponButton>(true);
+        foreach(var item in allButtons)
+        {
+            item.Init();
+        }
     }
 }

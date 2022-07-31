@@ -7,5 +7,6 @@ public class SpawnPoint : MonoBehaviour
     void OnMouseDown()
     {
         print("메뉴 표시");
+        WeaponSelectUI.instance.Show(transform.position);
     }
 }

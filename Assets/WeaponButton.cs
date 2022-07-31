@@ -28,5 +28,6 @@ public class WeaponButton : MonoBehaviour
         var spawnPos = WeaponSelectUI.instance.posTr.position;
         print(type + $"을 {spawnPos}에 건설하자");
         BuildManager.instance.Build(type, spawnPos);
+        WeaponSelectUI.instance.gameObject.SetActive(false);
     }
 }

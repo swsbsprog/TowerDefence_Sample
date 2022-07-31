@@ -13,8 +13,11 @@ public class BuildManager : MonoBehaviour
     internal void Build(TowerType type, Vector3 spawnPos)
     {
         // type에 해당하는 골드 감소.
-        Tower newTower = GetPrefab(type);
+        Tower newTowerPrefab = GetPrefab(type);
+        Tower newTower = Instantiate(newTowerPrefab);
+        newTower.transform.position = spawnPos;
     }
+
     public List<Tower> towers;
     private Tower GetPrefab(TowerType type)
     {

@@ -22,8 +22,11 @@ public class WaveManager : MonoBehaviour
         while (currentWaveIndex < waves.Length)
         {
             var wave = waves[currentWaveIndex];
-            //wave.interval; // 필어마운트채우자. 
-            yield return new WaitForSeconds(wave.interval);
+            SetFillAmountUI(wave.interval);
+
+            waitEndTime = Time.time + wave.interval;
+            while (Time.time < waitEndTime)
+                yield return null;
             // 몬스터 리젠
             for (int i = 0; i < wave.count; i++)
             {
@@ -36,6 +39,20 @@ public class WaveManager : MonoBehaviour
             }
             currentWaveIndex++;
         }
+    }
+    float waitEndTime;
+    public void OnClickRegenMonster()
+    {
+        // 기다리는 시간 즉시 완료되게 하기.
+        waitEndTime = 0;
+        fillAmountUI.gameObject.SetActive(false);
+    }
+    public Animator fillAmountUI;
+    private void SetFillAmountUI(float interval)
+    {
+        fillAmountUI.gameObject.SetActive(true);
+        fillAmountUI.speed = 1 / interval;  // interval : 10 => 1 / 10 => 0.1f
+        fillAmountUI.Play("FillAmount", 1, 0);
     }
 }
 

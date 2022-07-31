@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2398303781328990692, guid: 04886cda7ddd3f34b97ab2b77f308acf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 131f873c054f93e4c99ed069fe05775f, type: 2}
     - target: {fileID: 2398303781328990693, guid: 04886cda7ddd3f34b97ab2b77f308acf, type: 3}
       propertyPath: m_Name
       value: Monster_Duck

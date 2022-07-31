@@ -1,11 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    static public WaveManager instance;
+    private void Awake() => instance = this;
     public int currentWaveIndex;
     public WaveInfo[] waves;
+    public int Point
+    {
+        get => point;
+        set
+        {
+            point = value;
+            pointText.text = point.ToString();
+        }
+    }
+    int point;
+    public TextMeshProUGUI pointText;
+
 
     [System.Serializable]
     public class WaveInfo

@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
         if (monster == null)
             return;
 
+        WaveManager.instance.Point += 10;
         Destroy(monster.gameObject);
         Destroy(gameObject);
     }

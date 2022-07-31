@@ -17,6 +17,7 @@ public class WaveManager : MonoBehaviour
     public Transform startPosition;
     public float startPositionRange = 1;
     public Transform destination;
+    public float monsterRegenDelay = 0.5f;
     private IEnumerator Start()
     {
         while (currentWaveIndex < waves.Length)
@@ -27,9 +28,11 @@ public class WaveManager : MonoBehaviour
             waitEndTime = Time.time + wave.interval;
             while (Time.time < waitEndTime)
                 yield return null;
+
             // 몬스터 리젠
             for (int i = 0; i < wave.count; i++)
             {
+                yield return new WaitForSeconds(Random.Range(0, monsterRegenDelay));
                 var newMonser = Instantiate(wave.monster);
                 var spawnPosition = startPosition.position;
                 spawnPosition += new Vector3(Random.Range(-startPositionRange, startPositionRange)
